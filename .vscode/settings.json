@@ -51,5 +51,6 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "CS4080-Game.sln"
+    "dotnet.defaultSolution": "CS4080-Game.sln",
+    "dotnet.preferCSharpExtension": true
 }
