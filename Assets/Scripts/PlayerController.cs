@@ -5,24 +5,54 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private float speed = 30.0f;
-    private float turnSpeed = 100;
+    private float turnSpeed = 25;
 
     private float horizontalInput;
     private float forwardInput;
 
-    // Start is called before the first frame update
-    void Start()
+    private bool crashed = false;
+
+    // Stops the vehicle when it crashes
+    public IEnumerator resumeDriving()
     {
+        Debug.Log("waiting");
+        yield return new WaitForSecondsRealtime((float)0.5);
+        crashed = false;
         
+    }
+    // Stops the vehicle when it crashes
+    public void isCrashed(bool checking)
+    {
+        if (checking)
+        {
+            Debug.Log("Crashed");
+            crashed = true;
+            StartCoroutine(resumeDriving());
+            Debug.Log("Done waiting");
+        }
+    }
+    // Start is called before the first frame update
+    public void Start()
+    {
+        transform.position = new Vector3(transform.position.x, 0, transform.position.z);
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
+        transform.position = new Vector3(transform.position.x, 0, transform.position.z);
         horizontalInput = Input.GetAxis("Horizontal");
         forwardInput = Input.GetAxis("Vertical");
         // Move the vehicle forward
-        transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
-        transform.Rotate(Vector3.up, Time.deltaTime * turnSpeed * horizontalInput);
+        if(transform.position.y == 0 && !crashed)
+        {
+            transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
+            transform.Rotate(Vector3.up, Time.deltaTime * turnSpeed * horizontalInput);
+        }
+        else
+        {
+             transform.Translate(0,0,0);
+        }
+        
     }
 }
