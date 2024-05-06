@@ -4,6 +4,7 @@ public class Health : MonoBehaviour
 {
     public int maxHealth = 100;
     public int currentHealth;
+    public GameOverUI gameOverUI;
 
     void Start()
     {
@@ -15,7 +16,7 @@ public class Health : MonoBehaviour
         currentHealth -= damageAmount;
         if (currentHealth <= 0)
         {
-            Die();
+            Die(); 
         }
     }
 
@@ -28,6 +29,9 @@ public class Health : MonoBehaviour
     void EndGame()
     {
         Debug.Log("Game Over!");
-       /* FindObjectOfType<GameOverUI>().ToggleGameOver(true);*/
+        if(gameOverUI != null )
+        {
+            gameOverUI.ToggleGameOver(true);
+        }
     }
 }
