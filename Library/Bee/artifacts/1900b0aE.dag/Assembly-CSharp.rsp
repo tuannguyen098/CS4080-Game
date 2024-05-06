@@ -358,6 +358,7 @@
 "Assets/Scripts/Health.cs"
 "Assets/Scripts/HealthBar.cs"
 "Assets/Scripts/PlayerController.cs"
+"Assets/Timer.cs"
 -langversion:9.0
 
 /deterministic
