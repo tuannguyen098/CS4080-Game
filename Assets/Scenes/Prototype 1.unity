@@ -10017,6 +10017,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   gameOverUI: {fileID: 1361536346}
+  timer: {fileID: 163399603}
 --- !u!114 &1458639535
 MonoBehaviour:
   m_ObjectHideFlags: 0

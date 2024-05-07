@@ -7,6 +7,7 @@ using UnityEngine;
 public class Timer : MonoBehaviour
 {
     private float timer;
+    private bool isRunning = true;
     public TMP_Text currenttime;
     // Start is called before the first frame update
     void Start()
@@ -17,7 +18,15 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
-        currenttime.text = "Timer: " + timer;
+        if (isRunning)
+        {
+            timer += Time.deltaTime;
+            currenttime.text = "Timer: " + timer.ToString("F2"); // Format to 2 decimal places
+        }
+    }
+
+    public void StopTimer()
+    {
+        isRunning = false;
     }
 }

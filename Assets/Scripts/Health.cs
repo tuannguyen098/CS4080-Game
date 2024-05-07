@@ -5,6 +5,7 @@ public class Health : MonoBehaviour
     public int maxHealth = 100;
     public int currentHealth;
     public GameOverUI gameOverUI;
+    public Timer timer;
 
     void Start()
     {
@@ -31,6 +32,7 @@ public class Health : MonoBehaviour
         Debug.Log("Game Over!");
         if(gameOverUI != null )
         {
+            timer.StopTimer();
             gameOverUI.ToggleGameOver(true);
         }
     }
