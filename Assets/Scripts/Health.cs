@@ -4,8 +4,7 @@ public class Health : MonoBehaviour
 {
     public int maxHealth = 100;
     public int currentHealth;
-    public GameOverUI gameOverUI;
-    public Timer timer;
+    public GameManager gameManager;
 
     void Start()
     {
@@ -24,16 +23,6 @@ public class Health : MonoBehaviour
     void Die()
     {
         GetComponent<PlayerController>().enabled = false;
-        EndGame();
-    }
-
-    void EndGame()
-    {
-        Debug.Log("Game Over!");
-        if(gameOverUI != null )
-        {
-            timer.StopTimer();
-            gameOverUI.ToggleGameOver(true);
-        }
+        gameManager.EndGame();
     }
 }
