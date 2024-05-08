@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
 
     private bool crashed = false;
 
+    public GameManager gameManager;
+
     // Stops the vehicle when it crashes
     public IEnumerator resumeDriving()
     {
@@ -53,6 +55,10 @@ public class PlayerController : MonoBehaviour
         {
              transform.Translate(0,0,0);
         }
-        
+        if(transform.position.z > 477.0493)
+        {
+            GetComponent<PlayerController>().enabled = false;
+            gameManager.Victory();
+        }
     }
 }
