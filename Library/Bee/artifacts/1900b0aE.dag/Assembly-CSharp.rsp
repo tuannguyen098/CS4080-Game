@@ -358,8 +358,10 @@
 "Assets/Scripts/GameOverUI.cs"
 "Assets/Scripts/Health.cs"
 "Assets/Scripts/HealthBar.cs"
+"Assets/Scripts/MainMenu.cs"
 "Assets/Scripts/PlayerController.cs"
 "Assets/Scripts/Timer.cs"
+"Assets/Scripts/VictoryUI.cs"
 -langversion:9.0
 
 /deterministic
